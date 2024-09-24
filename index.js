@@ -19,13 +19,18 @@ bot.onText(/\/stop/, (msg) => {
     const farewellMessage = `See you next time!`;
     bot.sendMessage(chatId, farewellMessage);
 });
+bot.onText(/\/end/, (msg) => {
+    const chatId = msg.chat.id;
+    const farewellMessage = `See you next time!`;
+    bot.sendMessage(chatId, farewellMessage);
+});
 
 bot.on("message",async(msg) =>
     {
     const chatId = msg.chat.id;
     const userInput = msg.text;
 
-    if (userInput === "/start" || userInput === "/stop") {
+    if (userInput === "/start" || userInput === "/stop" || userInput === "/end") {
         return; // Exit the message handler if the input is /start
     }
     
