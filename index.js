@@ -2,7 +2,6 @@ const TelegramBot= require("node-telegram-bot-api");
 const axios = require("axios");
 const token = "8159083368:AAFyOLfPd9ae_r6HKGLLZlv-RCoc0lYGwSo";
 
-
 const bot = new TelegramBot(token,{polling:true});
 
 
@@ -45,7 +44,8 @@ bot.onText(/\/forecast/, async (msg) => {
         const data = response.data;
 
         let forecastMessage = `3-Day Forecast for ${data.city.name}:\n`;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 3; i++) 
+        {
             const forecast = data.list[i * 8]; // Taking data every 24 hours (3 * 8 = 24 hours)
             const date = new Date(forecast.dt_txt).toDateString();  
             const weather = forecast.weather[0].description;
